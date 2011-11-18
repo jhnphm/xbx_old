@@ -1,0 +1,291 @@
+Testing msp430-gcc -Os -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from JTAGfunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from LowLevelFunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from stack_test.c:1:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from XBD_HAL.c:8:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.o: In function `main':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x0): multiple definition of `XBD_sendExecutionStartSignal'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionStartSignal+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x0): multiple definition of `XBD_sendExecutionCompleteSignal'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionCompleteSignal+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_debugOut':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_debugOut+0x0): multiple definition of `XBD_debugOut'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_debugOut+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_serveCommunication':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_serveCommunication+0x0): multiple definition of `XBD_serveCommunication'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_serveCommunication+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_loadStringFromConstDataArea':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_loadStringFromConstDataArea+0x0): multiple definition of `XBD_loadStringFromConstDataArea'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_loadStringFromConstDataArea+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_readPage':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_readPage+0x0): multiple definition of `XBD_readPage'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_readPage+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_programPage':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_programPage+0x0): multiple definition of `XBD_programPage'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_programPage+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToApplication':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToApplication+0x0): multiple definition of `XBD_switchToApplication'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToApplication+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToBootLoader':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToBootLoader+0x0): multiple definition of `XBD_switchToBootLoader'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToBootLoader+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x0): multiple definition of `XBD_busyLoopWithTiming'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_busyLoopWithTiming+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_paintStack':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_paintStack+0x0): multiple definition of `XBD_paintStack'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_paintStack+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o:(.bss.inv_sc+0x0): multiple definition of `inv_sc'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:(.bss.inv_sc+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_countStack':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_countStack+0x0): multiple definition of `XBD_countStack'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_countStack+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `main':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O0 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from JTAGfunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from LowLevelFunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from stack_test.c:1:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from XBD_HAL.c:8:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.o: In function `main':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_debugOut':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_debugOut+0x0): multiple definition of `XBD_debugOut'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_debugOut+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x0): multiple definition of `XBD_sendExecutionStartSignal'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionStartSignal+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x0): multiple definition of `XBD_sendExecutionCompleteSignal'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionCompleteSignal+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_serveCommunication':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_serveCommunication+0x0): multiple definition of `XBD_serveCommunication'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_serveCommunication+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_loadStringFromConstDataArea':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_loadStringFromConstDataArea+0x0): multiple definition of `XBD_loadStringFromConstDataArea'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_loadStringFromConstDataArea+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_readPage':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_readPage+0x0): multiple definition of `XBD_readPage'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_readPage+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_programPage':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_programPage+0x0): multiple definition of `XBD_programPage'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_programPage+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToApplication':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToApplication+0x0): multiple definition of `XBD_switchToApplication'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToApplication+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToBootLoader':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToBootLoader+0x0): multiple definition of `XBD_switchToBootLoader'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToBootLoader+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x0): multiple definition of `XBD_busyLoopWithTiming'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_busyLoopWithTiming+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o:(.bss.inv_sc+0x0): multiple definition of `inv_sc'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:(.bss.inv_sc+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_paintStack':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_paintStack+0x0): multiple definition of `XBD_paintStack'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_paintStack+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_countStack':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_countStack+0x0): multiple definition of `XBD_countStack'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_countStack+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `main':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O1 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from JTAGfunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from LowLevelFunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from stack_test.c:1:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from XBD_HAL.c:8:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.o: In function `main':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x0): multiple definition of `XBD_sendExecutionStartSignal'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionStartSignal+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x0): multiple definition of `XBD_sendExecutionCompleteSignal'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionCompleteSignal+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_debugOut':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_debugOut+0x0): multiple definition of `XBD_debugOut'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_debugOut+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_serveCommunication':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_serveCommunication+0x0): multiple definition of `XBD_serveCommunication'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_serveCommunication+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_loadStringFromConstDataArea':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_loadStringFromConstDataArea+0x0): multiple definition of `XBD_loadStringFromConstDataArea'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_loadStringFromConstDataArea+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_readPage':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_readPage+0x0): multiple definition of `XBD_readPage'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_readPage+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_programPage':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_programPage+0x0): multiple definition of `XBD_programPage'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_programPage+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToApplication':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToApplication+0x0): multiple definition of `XBD_switchToApplication'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToApplication+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToBootLoader':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToBootLoader+0x0): multiple definition of `XBD_switchToBootLoader'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToBootLoader+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x0): multiple definition of `XBD_busyLoopWithTiming'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_busyLoopWithTiming+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_paintStack':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_paintStack+0x0): multiple definition of `XBD_paintStack'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_paintStack+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o:(.bss.inv_sc+0x0): multiple definition of `inv_sc'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:(.bss.inv_sc+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_countStack':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_countStack+0x0): multiple definition of `XBD_countStack'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_countStack+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `main':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O2 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from JTAGfunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from LowLevelFunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from stack_test.c:1:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from XBD_HAL.c:8:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.o: In function `main':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x0): multiple definition of `XBD_sendExecutionStartSignal'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionStartSignal+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x0): multiple definition of `XBD_sendExecutionCompleteSignal'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionCompleteSignal+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_debugOut':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_debugOut+0x0): multiple definition of `XBD_debugOut'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_debugOut+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_serveCommunication':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_serveCommunication+0x0): multiple definition of `XBD_serveCommunication'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_serveCommunication+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_loadStringFromConstDataArea':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_loadStringFromConstDataArea+0x0): multiple definition of `XBD_loadStringFromConstDataArea'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_loadStringFromConstDataArea+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_readPage':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_readPage+0x0): multiple definition of `XBD_readPage'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_readPage+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_programPage':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_programPage+0x0): multiple definition of `XBD_programPage'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_programPage+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToApplication':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToApplication+0x0): multiple definition of `XBD_switchToApplication'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToApplication+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToBootLoader':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToBootLoader+0x0): multiple definition of `XBD_switchToBootLoader'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToBootLoader+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x0): multiple definition of `XBD_busyLoopWithTiming'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_busyLoopWithTiming+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_paintStack':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_paintStack+0x0): multiple definition of `XBD_paintStack'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_paintStack+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o:(.bss.inv_sc+0x0): multiple definition of `inv_sc'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:(.bss.inv_sc+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_countStack':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_countStack+0x0): multiple definition of `XBD_countStack'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_countStack+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `main':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O3 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from JTAGfunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from hardware.h:11:0,
+from LowLevelFunc.h:30,
+from LowLevelFunc.c:26:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from stack_test.c:1:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+In file included from XBD_HAL.c:8:0:
+/usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.o: In function `main':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_APP.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x0): multiple definition of `XBD_sendExecutionStartSignal'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionStartSignal+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x0): multiple definition of `XBD_sendExecutionCompleteSignal'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_sendExecutionCompleteSignal+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_debugOut':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_debugOut+0x0): multiple definition of `XBD_debugOut'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_debugOut+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_serveCommunication':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_serveCommunication+0x0): multiple definition of `XBD_serveCommunication'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_serveCommunication+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_loadStringFromConstDataArea':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_loadStringFromConstDataArea+0x0): multiple definition of `XBD_loadStringFromConstDataArea'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_loadStringFromConstDataArea+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_readPage':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_readPage+0x0): multiple definition of `XBD_readPage'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_readPage+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_programPage':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_programPage+0x0): multiple definition of `XBD_programPage'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_programPage+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToApplication':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToApplication+0x0): multiple definition of `XBD_switchToApplication'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToApplication+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_switchToBootLoader':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_switchToBootLoader+0x0): multiple definition of `XBD_switchToBootLoader'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_switchToBootLoader+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x0): multiple definition of `XBD_busyLoopWithTiming'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_busyLoopWithTiming+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_paintStack':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_paintStack+0x0): multiple definition of `XBD_paintStack'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_paintStack+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o:(.bss.inv_sc+0x0): multiple definition of `inv_sc'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:(.bss.inv_sc+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_countStack':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_countStack+0x0): multiple definition of `XBD_countStack'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.text.XBD_countStack+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `main':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.init9+0x0): multiple definition of `main'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking stack_test.o:stack_test.c:(.init9+0x0): first defined here
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Found no working compilers
