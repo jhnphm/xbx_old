@@ -4,16 +4,17 @@
 
 ## General Flags
 PROJECT = XBD_BL_MSP430FG4618_1MHz
-MCU = msp2
+MCU = msp430xG4618
 TARGET = XBD_BL_MSP430FG4618_1MHz.elf
-CC = msp430-gcc
+CC = msp430-gcc -g
 
 ## Options common to compile, link and assembly rules
 COMMON = -mmcu=$(MCU)
 
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON)
-CFLAGS += -Wall -gdwarf-2 -std=gnu99               -DF_CPU=1000000UL -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -DBOOTLOADER 
+## F_CPU is 32x32768Hz crystal
+CFLAGS += -Wall -gdwarf-2 -std=gnu99 -DF_CPU=1048576UL -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -DBOOTLOADER 
 CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
 
 ## Assembly specific flags
@@ -36,11 +37,12 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Include Directories
-INCLUDES = -I"../../../../embedded/xbd/xbd_af" -I"../../hal" 
+INCLUDES = -I"../../../../embedded/xbd/xbd_af" -I"../../hal"  -I"../../hal/drivers"
 #-I"../../../atmega_common/hal" -I"../../../atmega_common/hal/drivers" 
 
 ## Objects that must be built in order to link
-OBJECTS = XBD_BL.o XBD_HAL.o XBD_debug.o XBD_crc.o XBD_util.o i2c.o RS232.o 
+OBJECTS = XBD_BL.o XBD_HAL.o XBD_debug.o XBD_crc.o XBD_util.o i2c.o RS232.o JTAGfunc.o LowLevelFunc.o
+
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
@@ -66,10 +68,17 @@ XBD_crc.o: ../../../../embedded/xbd/xbd_af/XBD_crc.c
 XBD_util.o: ../../../../embedded/xbd/xbd_af/XBD_util.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
-i2c.o: ../../../atmega_common/hal/drivers/i2c.c
+i2c.o: ../../hal/drivers/i2c.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
-RS232.o: ../../../atmega_common/hal/drivers/RS232.c
+JTAGfunc.o: ../../hal/drivers/JTAGfunc.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+LowLevelFunc.o: ../../hal/drivers/LowLevelFunc.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+
+RS232.o: ../../hal/drivers/RS232.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link
@@ -77,17 +86,17 @@ $(TARGET): $(OBJECTS)
 	 $(CC) $(LDFLAGS) $(OBJECTS) $(LINKONLYOBJECTS) $(LIBDIRS) $(LIBS) -o $(TARGET)
 
 %.hex: $(TARGET)
-	avr-objcopy -O ihex $(HEX_FLASH_FLAGS)  $< $@
+	msp430-objcopy -O ihex $(HEX_FLASH_FLAGS)  $< $@
 
 %.eep: $(TARGET)
-	-avr-objcopy $(HEX_EEPROM_FLAGS) -O ihex $< $@ || exit 0
+	msp430-objcopy $(HEX_EEPROM_FLAGS) -O ihex $< $@ || exit 0
 
 %.lss: $(TARGET)
-	avr-objdump -h -S $< > $@
+	msp430-objdump -h -S $< > $@
 
 size: ${TARGET}
 	@echo
-	@avr-size  ${TARGET}
+	@msp430-size  ${TARGET}
 
 ## Clean target
 .PHONY: clean

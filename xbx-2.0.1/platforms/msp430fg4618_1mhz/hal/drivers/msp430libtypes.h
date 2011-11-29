@@ -23,12 +23,14 @@
 #define MSP430LIBTYPES_H
 
 #include <inttypes.h>
+#include <stdbool.h>
 
-#ifndef WIN32
-	// true/false defines
-	#define FALSE	0
-	#define TRUE	-1
-#endif
+// Made redundant w/ stdbool
+//#ifndef WIN32
+//	// true/false defines
+//	#define FALSE	0
+//	#define TRUE	-1
+//#endif
 
 // datatype definitions macros
 typedef uint8_t  u08;

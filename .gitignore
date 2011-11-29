@@ -2,3 +2,14 @@
 *.hex
 *.bin
 *.elf
+*.eep
+*.lss
+*.map
+*.o.d
+*.aps
+*/xbdprog.txt
+*.swp
+*.swo
+xbx-2.0.1/work/*
+errors
+

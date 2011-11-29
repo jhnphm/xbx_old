@@ -18,3 +18,7 @@
 /** maximum flash / binary storage size */
 #define FLASH_ADDR_MAX (0xffffff)
 
+
+#define DEVICE_SPECIFIC_SANE_TC_VALUE 30000
+
+

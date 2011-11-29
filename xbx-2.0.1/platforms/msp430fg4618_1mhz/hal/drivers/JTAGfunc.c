@@ -719,12 +719,18 @@ word BlowFuse(void)
     mode = VPP_ON_TDI;                  // Enable VPP on TDI
   }
     
+  /**
+   * XXX
+   * We want to disable fuse blowing for safety purposes
+   */
+#if 0   
   IR_Shift(IR_PREPARE_BLOW);            // Initialize fuse blowing
   Delay(1);
   VPPon(mode);                          // Switch VPP onto selected pin
   Delay(5);
   IR_Shift(IR_EX_BLOW);                 // Execute fuse blowing
   Delay(1);
+#endif
  
   // Switch off power to target and wait
   ReleaseTarget();                      // switch VPP and VCC target off

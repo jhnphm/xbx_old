@@ -1,65 +1,15 @@
-+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from JTAGfunc.c:26:
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.c:26:
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c In file included from stack_test.c:1:0:
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c In file included from XBD_HAL.c:8:0:
-+compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from JTAGfunc.c:26:
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.c:26:
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c In file included from stack_test.c:1:0:
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c In file included from XBD_HAL.c:8:0:
-+compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from JTAGfunc.c:26:
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.c:26:
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c In file included from stack_test.c:1:0:
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c In file included from XBD_HAL.c:8:0:
-+compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from JTAGfunc.c:26:
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.c:26:
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c In file included from stack_test.c:1:0:
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c In file included from XBD_HAL.c:8:0:
-+compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c from JTAGfunc.c:26:
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling JTAGfunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c In file included from hardware.h:11:0,
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.h:30,
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c from LowLevelFunc.c:26:
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling LowLevelFunc.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c In file included from stack_test.c:1:0:
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling stack_test.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c In file included from XBD_HAL.c:8:0:
-+compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c /usr/lib/gcc/msp430/4.5.3/../../../../msp430/include/signal.h:43:2: warning: #warning msp430-libc <signal.h> deprecated, using <legacymsp430.h>
++gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
++compile gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
++compile gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
++gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
++compile gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
++compile gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
++gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
++compile gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
++compile gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
++gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
++compile gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
++compile gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
++gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
++compile gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
++compile gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.

@@ -1,3 +1,5 @@
+#ifndef __GLOBAL_H
+#define __GLOBAL_H
 /*! \file global.h \brief AVRlib project global include. */
 
 //*****************************************************************************
@@ -66,6 +68,7 @@
 
 //#define F_CPU        3686400               		// 3.69MHz processor
 
-//#define F_CPU		   1000000						// 1MHz processor - Margaux
+//#define F_CPU		   1000000						// 1MHz processor - Margaux //- defined on command line
 
-#define CYCLES_PER_US ((F_CPU+500000)/1000000) 	// cpu cycles per microsecond
+//#define CYCLES_PER_US ((F_CPU+500000)/1000000) 	// cpu cycles per microsecond
+#endif __GLOBAL_H
