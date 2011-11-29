@@ -13,7 +13,7 @@
 void usart_init(uint32_t baudrate)
 {
   // Set usart into config
-  UCA0CTL1 == UCSSEL1|UCSWRST;        // **Initialize USCI and set clock to use smclk
+  UCA0CTL1 = UCSSEL1|UCSWRST;        // **Initialize USCI and set clock to use smclk
   UCA0CTL0 = 0x00;			//  UCSRC to, Asyncronous 8N1
 
   // Baud rate selection
