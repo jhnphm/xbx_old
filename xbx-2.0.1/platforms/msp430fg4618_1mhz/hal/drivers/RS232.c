@@ -1,4 +1,5 @@
 #include <msp430fg4618.h>
+#include "global.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -7,31 +8,29 @@
 
 #include "RS232.h"
 //#include "msp430libtypes.h"
-#define F_CPU 10000000 // Cpu frequency (speed of SMCLK)
+//#define F_CPU 10000000 // Cpu frequency (speed of SMCLK)
 
-void usart_init_old(unsigned char baud_divider) 
+void usart_init(uint32_t baudrate)
 {
-  // Baud rate selection
-  UCA0BR1 = 0x00;       
-  UCA0BR0 = baud_divider;
-
-  // USART setup
-  
-/*
-  // --->UCSR0A = 0x02;        // 0000 0010
-                       // U2X enabled
-  */
-  P4SEL |= 0x0C0;                           // P4.7,6 = USCI_A0 RXD/TXD
-  
+  // Set usart into config
+  UCA0CTL1 == UCSSEL1|UCSWRST;        // **Initialize USCI and set clock to use smclk
   UCA0CTL0 = 0x00;			//  UCSRC to, Asyncronous 8N1
-  UCA0CTL1 |= UCSSEL_2;         // SMCLK
+
+
+  
+
+  // Baud rate selection
+  // TODO Need to genercize for different F_CLK
+  UCA0BR1 = 0x09;       
+  UCA0BR0 = 0x01;
+  UCA0MCTL = 0x01<<4;
+
+  //Port select
+  P4SEL |= 0x0C0;                           // P4.7,6 = USCI_A0 RXD/TXD
+
+
   UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
   //IE2_bit.UCA0RXIE = 1;       // RX Complete interrupt enabled
-}
-
-void usart_init(u32 baudrate)
-{
-	usart_init_old(USART_BAUDRATE(baudrate,F_CPU/1000000)); 
 }
 
 void usart_putc(char data) {

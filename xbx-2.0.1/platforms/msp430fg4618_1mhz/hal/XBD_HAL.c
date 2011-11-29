@@ -1,4 +1,4 @@
-#include "msp430fg4618.h"   /* msp430-gcc */
+#include <msp430fg4618.h>   /* msp430-gcc */
 //#include "msp430F4618.h"
 #include <XBD_HAL.h>
 #include <XBD_FRW.h>
@@ -11,7 +11,7 @@
 /* your functions / global variables here */
 #include <i2c.h>
 #include <RS232.h>
-//#include <jtagfunc.c>
+#include <JTAGfunc.h>
 
 #define I2C_BAUDRATE 400
 #define SLAVE_ADDR 1
@@ -19,6 +19,10 @@
 void XBD_init()
 {
   /* inititalisation code, called once */
+
+
+  //TODO Set clock here later. Dev board defaults to 32kHz*32
+  //Default should be SMCLK=MCLK=32kHz*32
 
   __disable_interrupt();
 
@@ -69,7 +73,7 @@ void XBD_serveCommunication()
 
     depending whether it's a read or write request
   */
-  if((IFG2&UCB0RXIFG== 1) | (IFG2&UCB0TXIFG == 1)) {
+  if(((IFG2&UCB0RXIFG)== 1) | ((IFG2&UCB0TXIFG) == 1)) {
 		twi_isr();
 	}
 }
@@ -80,7 +84,7 @@ void XBD_loadStringFromConstDataArea( char *dst, const char *src  ) {
    		copy a zero terminated string from src (CONSTDATAAREA) to dst
    		e.g. strcpy if CONSTDATAREA empty, strcpy_P for PROGMEM
    	*/
-	while(*dst++ = ReadMem( (0x10000l) | ((uint32_t)((uint16_t)src++))) );
+	while((*dst++ = ReadMem(F_WORD, (0x10000l) | ((uint32_t)((uint16_t)src++)))) );
 }
 
 
@@ -91,7 +95,7 @@ void XBD_readPage( uint32_t pageStartAddress, uint8_t * buf )
   	u16 u;
   	for(u = 0;u < 256; ++u)			//may need to change to 128
   	{
-  		*buf++ = ReadMem(pageStartAddress++);
+  		*buf++ = ReadMem(F_WORD,pageStartAddress++);
 	}
 }
 
@@ -215,6 +219,7 @@ uint32_t XBD_countStack(void)
   return (uint32_t)c;
 }
 
+#if 0
 /* To be removed */
 
 int main (void)
@@ -223,3 +228,4 @@ int main (void)
   XBD_paintStack();
 
 }
+#endif
