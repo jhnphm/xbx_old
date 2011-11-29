@@ -71,4 +71,4 @@
 //#define F_CPU		   1000000						// 1MHz processor - Margaux //- defined on command line
 
 //#define CYCLES_PER_US ((F_CPU+500000)/1000000) 	// cpu cycles per microsecond
-#endif __GLOBAL_H
+#endif
