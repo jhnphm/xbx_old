@@ -16,9 +16,6 @@ void usart_init(uint32_t baudrate)
   UCA0CTL1 == UCSSEL1|UCSWRST;        // **Initialize USCI and set clock to use smclk
   UCA0CTL0 = 0x00;			//  UCSRC to, Asyncronous 8N1
 
-
-  
-
   // Baud rate selection
   // TODO Need to genercize for different F_CLK
   UCA0BR1 = 0x09;       
@@ -34,7 +31,7 @@ void usart_init(uint32_t baudrate)
 }
 
 void usart_putc(char data) {
-    while (!(IFG2 & UCA0TXIFG)); 
+    while (!(UCA0TXIFG & UCA0TXIFG)); 
 	UCA0TXBUF = data;
 }
 
