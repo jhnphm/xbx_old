@@ -6,7 +6,7 @@
 PROJECT = XBD_BL_MSP430FG4618_1MHz
 MCU = msp430xG4618
 TARGET = XBD_BL_MSP430FG4618_1MHz.elf
-CC = msp430-gcc -g
+CC = msp430-gcc -gdwarf-2 -g3 
 
 ## Options common to compile, link and assembly rules
 COMMON = -mmcu=$(MCU)
@@ -41,7 +41,7 @@ INCLUDES = -I"../../../../embedded/xbd/xbd_af" -I"../../hal"  -I"../../hal/drive
 #-I"../../../atmega_common/hal" -I"../../../atmega_common/hal/drivers" 
 
 ## Objects that must be built in order to link
-OBJECTS = XBD_BL.o XBD_HAL.o XBD_debug.o XBD_crc.o XBD_util.o i2c.o RS232.o JTAGfunc.o LowLevelFunc.o
+OBJECTS = XBD_BL.o XBD_HAL.o XBD_debug.o XBD_crc.o XBD_util.o i2c.o RS232.o LowLevelFunc.o JTAGfunc.o
 
 
 ## Objects explicitly added by the user
@@ -71,12 +71,11 @@ XBD_util.o: ../../../../embedded/xbd/xbd_af/XBD_util.c
 i2c.o: ../../hal/drivers/i2c.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
-JTAGfunc.o: ../../hal/drivers/JTAGfunc.c
-	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
-
 LowLevelFunc.o: ../../hal/drivers/LowLevelFunc.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
+JTAGfunc.o: ../../hal/drivers/JTAGfunc.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 RS232.o: ../../hal/drivers/RS232.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
