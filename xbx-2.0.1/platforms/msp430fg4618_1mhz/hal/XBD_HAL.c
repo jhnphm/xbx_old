@@ -49,7 +49,7 @@ void XBD_init() {
     //Change in global.h
     SCFQCTL = CLK_MULT-1;
     //Explicitly enable SMCLK and set SMCLK and MCLK to DCOCLK
-    FLL_CTL1 &= ~(SMCLKOFF | SELM0|SELM1 SELS);
+    FLL_CTL1 &= ~(SMCLKOFF | SELM0|SELM1 | SELS);
     //Loop 32768 times for clk to stabilize
     for(i = 0; i< 32768;i++);
     
@@ -76,7 +76,7 @@ void XBD_init() {
 
     i2cInit();
     i2cSetLocalDeviceAddr(SLAVE_ADDR, 0);
-    i2cSetBitrate(I2C_BAUDRATE);
+    //i2cSetBitrate(I2C_BAUDRATE);  // Slave, does not need to be set.
     i2cSetSlaveReceiveHandler( FRW_msgRecHand );
     i2cSetSlaveTransmitHandler( FRW_msgTraHand );
 

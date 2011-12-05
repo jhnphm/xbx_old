@@ -12,8 +12,8 @@ void usart_init()
 {
 
     P2SEL |= BIT4|BIT5;                       // P4.7,6 = USCI_A0 RXD/TXD
-    P2DIR |= BIT4;                            // Set port dir
-    P2DIR &= ~BIT5;                           //set port dir
+    //P2DIR |= BIT4;                            // Set port dir
+    //P2DIR &= ~BIT5;                           //set port dir
     UCA0CTL1 |= UCSSEL_2|UCSWRST;             // SMCLK
 #if F_CPU == F_CPU_DEFAULT
     UCA0BR0 = 0x09;                           // 1MHz 115200

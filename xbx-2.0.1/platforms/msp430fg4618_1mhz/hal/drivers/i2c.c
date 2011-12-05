@@ -78,44 +78,20 @@ static uint8_t (*i2cSlaveTransmit)(uint8_t transmitDataLengthMax, uint8_t* trans
 void i2cInit(void) {
 
     P3SEL |= 0x06;                            // Assign I2C pins to USCI_B0
+
     UCB0CTL1 |= UCSWRST;                      // Enable SW reset
-    UCB0CTL0 = UCMODE_3 + UCSYNC;             // I2C Slave, synchronous mode
-    UCB0CTL1 = UCSSEL_2 + UCSWRST;            // Use SMCLK, keep SW reset
-    UCB0BR0 = 11;                             // fSCL = SMCLK/11 = 95.3kHz
-    UCB0BR1 = 0;
-
-    //IE2 |= UCB0TXIE;                          // Enable USCI_B0 TX interrupt
-
-
+    UCB0CTL0 &= ~UCMST;
+    UCB0CTL0 = UCMODE_3 | UCSYNC;             // I2C Slave, synchronous mode
+    //UCB0CTL0 |= UCA10 | UCSLA10;             // 10 bit addressing 
+    UCB0CTL1 = UCSSEL_2 | UCSWRST;            // Use SMCLK, keep SW reset
 
 
     // clear SlaveReceive and SlaveTransmit handler to null
-
     i2cSlaveReceive = 0;
-
     i2cSlaveTransmit = 0;
-
-    // set i2c bit rate to 100KHz
-
-    i2cSetBitrate(100);
-
-
-    // set state
-
-    // do not enable interrupts
-
-
 }
 
 
-
-void i2cSetBitrate(uint16_t bitrateKHz) {
-    // calculate bitrate division	
-    //clock from SMCLK, reciever (default), hold in reset
-    UCB0CTL1 = UCSSEL1 | UCSWRST;
-    UCB0BR1 = 0;				//upper byte of divider word
-    UCB0BR0 = F_CPU/bitrateKHz;		// lower byte
-}
 
 
 
