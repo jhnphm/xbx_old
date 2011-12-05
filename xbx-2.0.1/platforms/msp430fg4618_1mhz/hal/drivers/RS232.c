@@ -1,23 +1,31 @@
 #include <msp430fg4618.h>
-#include "global.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#include <stdint.h>
+#include <inttypes.h>
 
+#include "global.h"
 #include "RS232.h"
 
-void usart_init(uint32_t baudrate)
+void usart_init()
 {
 
-    P2SEL |= 0x30;                           // P4.7,6 = USCI_A0 RXD/TXD
-    P2DIR |= 0x10;                          // Set port dir
-    P2DIR &= ~0x20;                         //set port dir
-    UCA0CTL1 |= UCSSEL_2;                     // SMCLK
+    P2SEL |= BIT4|BIT5;                       // P4.7,6 = USCI_A0 RXD/TXD
+    P2DIR |= BIT4;                            // Set port dir
+    P2DIR &= ~BIT5;                           //set port dir
+    UCA0CTL1 |= UCSSEL_2|UCSWRST;             // SMCLK
+//#if F_CPU == F_CPU_DEFAULT
+#if 1
     UCA0BR0 = 0x09;                           // 1MHz 115200
     UCA0BR1 = 0x00;                           // 1MHz 115200
     UCA0MCTL = 0x02;                          // Modulation
+#else
+    //dynamically compute baudrate
+    UCA0BR0 = (F_CPU/UART_BAUDRATE)%UINT8_MAX;           // 1MHz 115200
+    UCA0BR1 = (F_CPU/UART_BAUDRATE)>>8;                  // 1MHz 115200
+    UCA0MCTL = (((8*F_CPU)/UART_BAUDRATE)&0x7)<<1;                          // Modulation
+#endif
     UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
 
     //IE2_bit.UCA0RXIE = 1;       // RX Complete interrupt enabled

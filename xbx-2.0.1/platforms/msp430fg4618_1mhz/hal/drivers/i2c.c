@@ -1,4 +1,3 @@
-
 // From msp430-gcc 
 //#include <io.h>
 //#include <interrupt.h>
@@ -8,7 +7,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#include <stdint.h>
+#include <inttypes.h>
 //#include "msp430libtypes.h"
 //#include <io430xG46x.h>
 /*#include <intrinsics.h>
@@ -38,23 +37,23 @@
 
 
 
-//static u08 I2cDeviceAddrRW;
+//static uint8_t I2cDeviceAddrRW;
 
 // send/transmit buffer (outgoing data)
 
-static u08 I2cSendData[I2C_SEND_DATA_BUFFER_SIZE];
+static uint8_t I2cSendData[I2C_SEND_DATA_BUFFER_SIZE];
 
-static u08 I2cSendDataIndex;
+static uint8_t I2cSendDataIndex;
 
-static u08 I2cSendDataLength;
+static uint8_t I2cSendDataLength;
 
 // receive buffer (incoming data)
 
-static u08 I2cReceiveData[I2C_RECEIVE_DATA_BUFFER_SIZE];
+static uint8_t I2cReceiveData[I2C_RECEIVE_DATA_BUFFER_SIZE];
 
-static u08 I2cReceiveDataIndex;
+static uint8_t I2cReceiveDataIndex;
 
-//static u08 I2cReceiveDataLength;
+//static uint8_t I2cReceiveDataLength;
 
 
 
@@ -64,13 +63,13 @@ static u08 I2cReceiveDataIndex;
 
 // is addressed as a slave for writing
 
-static void (*i2cSlaveReceive)(u08 receiveDataLength, u08* recieveData);
+static void (*i2cSlaveReceive)(uint8_t receiveDataLength, uint8_t* recieveData);
 
 //! I2cSlaveTransmit is called when this processor
 
 // is addressed as a slave for reading
 
-static u08 (*i2cSlaveTransmit)(u08 transmitDataLengthMax, u08* transmitData);
+static uint8_t (*i2cSlaveTransmit)(uint8_t transmitDataLengthMax, uint8_t* transmitData);
 
 
 
@@ -78,7 +77,6 @@ static u08 (*i2cSlaveTransmit)(u08 transmitDataLengthMax, u08* transmitData);
 
 void i2cInit(void) {
 
-    WDTCTL = WDTPW + WDTHOLD;
     P3SEL |= 0x06;                            // Assign I2C pins to USCI_B0
     UCB0CTL1 |= UCSWRST;                      // Enable SW reset
     UCB0CTL0 = UCMODE_3 + UCSYNC;             // I2C Slave, synchronous mode
@@ -104,9 +102,6 @@ void i2cInit(void) {
 
     // set state
 
-
-
-
     // do not enable interrupts
 
 
@@ -114,17 +109,17 @@ void i2cInit(void) {
 
 
 
-void i2cSetBitrate(u16 bitrateKHz) {
+void i2cSetBitrate(uint16_t bitrateKHz) {
     // calculate bitrate division	
     //clock from SMCLK, reciever (default), hold in reset
     UCB0CTL1 = UCSSEL1 | UCSWRST;
     UCB0BR1 = 0;				//upper byte of divider word
-    UCB0BR0 = 1000000/bitrateKHz;		// lower byte
+    UCB0BR0 = F_CPU/bitrateKHz;		// lower byte
 }
 
 
 
-void i2cSetLocalDeviceAddr(u08 deviceAddr, u08 genCallEn) {
+void i2cSetLocalDeviceAddr(uint8_t deviceAddr, uint8_t genCallEn) {
     // set local device address (used in slave mode only)
 
     UCB0I2COA = (deviceAddr | (genCallEn?UCGCEN:0));
@@ -133,13 +128,13 @@ void i2cSetLocalDeviceAddr(u08 deviceAddr, u08 genCallEn) {
 
 
 
-void i2cSetSlaveReceiveHandler(void (*i2cSlaveRx_func)(u08 receiveDataLength, u08* recieveData)) {
+void i2cSetSlaveReceiveHandler(void (*i2cSlaveRx_func)(uint8_t receiveDataLength, uint8_t* recieveData)) {
     i2cSlaveReceive = i2cSlaveRx_func;
 }
 
 
 
-void i2cSetSlaveTransmitHandler(u08 (*i2cSlaveTx_func)(u08 transmitDataLengthMax, u08* transmitData)) {
+void i2cSetSlaveTransmitHandler(uint8_t (*i2cSlaveTx_func)(uint8_t transmitDataLengthMax, uint8_t* transmitData)) {
     i2cSlaveTransmit = i2cSlaveTx_func;
 }
 
@@ -179,9 +174,9 @@ void twi_isr(){
 
             // receive data byte and return NACK
 
-            I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
+            //I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
             UCB0CTL1 |= UCTXNACK;
-            I2cReceiveDataIndex++;
+            //I2cReceiveDataIndex++;
         }
 
 

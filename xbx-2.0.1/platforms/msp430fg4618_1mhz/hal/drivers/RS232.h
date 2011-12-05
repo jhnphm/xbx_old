@@ -12,9 +12,9 @@
 //
 //#define USART_BAUDRATE(br, fosc) ((fosc*125000+br/2)/br-1)
 
-/* Initializes USART device. Use USART_BAUDRATE macro for argument or
-   consult datasheet for correct value. */
-void usart_init(uint32_t baudrate);
+///* Initializes USART device. Use USART_BAUDRATE macro for argument or
+//   consult datasheet for correct value. */
+void usart_init();
 
 /* Transmit one character. No buffering, waits until previous character
    transmitted. */

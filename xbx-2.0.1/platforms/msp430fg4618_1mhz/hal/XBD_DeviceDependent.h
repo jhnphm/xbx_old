@@ -1,4 +1,4 @@
-
+#include "global.h"
 /** define LITTLE_ENDIAN or BIG_ENDIAN */
 #define LITTLE_ENDIAN
 
@@ -19,6 +19,6 @@
 #define FLASH_ADDR_MAX (0xffffff)
 
 
-#define DEVICE_SPECIFIC_SANE_TC_VALUE 30000
+#define DEVICE_SPECIFIC_SANE_TC_VALUE F_CPU
 
 
