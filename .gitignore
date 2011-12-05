@@ -10,6 +10,8 @@
 */xbdprog.txt
 *.swp
 *.swo
-xbx-2.0.1/work/*
+/xbx-2.0.1/work/*
 errors
-
+/ece492
+/sample
+/xbx-2.0.1/embedded/xbd/xbd_af/doc
