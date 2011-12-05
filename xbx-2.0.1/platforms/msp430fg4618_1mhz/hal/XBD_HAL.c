@@ -38,14 +38,23 @@ uint8_t  inv_sc = 0;
 extern unsigned short _end;  ///<Last used byte of the last segment in RAM (defined by the linker)
 
 
-
 void XBD_init() {
+    uint16_t i;
+
     __disable_interrupt();
     WDTCTL = WDTPW+WDTHOLD;            // Stop WDT
     /* inititalisation code, called once */
 
-    //TODO Explicitly set clock here later. Dev board defaults to 32kHz*32
-    //Default should be SMCLK=MCLK=32kHz*32
+    //Explicitly set clock here. Dev board defaults to 32kHz*32
+    //Change in global.h
+    SCFQCTL = CLK_MULT-1;
+    //Explicitly enable SMCLK and set SMCLK and MCLK to DCOCLK
+    FLL_CTL1 &= ~(SMCLKOFF | SELM0|SELM1 SELS);
+    //Loop 32768 times for clk to stabilize
+    for(i = 0; i< 32768;i++);
+    
+
+
 
     //__disable_interrupt();
     //TODO Manually disable all other interrupts.
