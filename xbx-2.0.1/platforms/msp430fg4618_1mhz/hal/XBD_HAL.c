@@ -14,7 +14,7 @@
 //#include <JTAGfunc.h>
 
 #define I2C_BAUDRATE 400
-#define SLAVE_ADDR 1
+#define SLAVE_ADDR 0
 
 
 #define STACK_CANARY (inv_sc?0x3A:0xC5)
@@ -47,7 +47,9 @@ void XBD_init() {
 
     //Explicitly set clock here. Dev board defaults to 32kHz*32
     //Change in global.h
-    SCFQCTL = CLK_MULT-1;
+    SCFQCTL = CLK_MULT-1; 
+    SCFI0 |= FN_3; 
+    SCFI0 &= ~(FLLD0|FLLD1); 
     //Explicitly enable SMCLK and set SMCLK and MCLK to DCOCLK
     FLL_CTL1 &= ~(SMCLKOFF | SELM0|SELM1 | SELS);
     //Loop 32768 times for clk to stabilize
@@ -112,9 +114,11 @@ void XBD_serveCommunication() {
 
        depending whether it's a read or write request
        */
-    if(((IFG2&UCB0RXIFG)== 1) | ((IFG2&UCB0TXIFG) == 1)) {
+ 
+    //if(UCB0STAT&UCSTTIFG) {
+    //if(((IFG2&UCB0RXIFG)== 1) | ((IFG2&UCB0TXIFG) == 1)) {
         twi_isr();
-    }
+    //}
 }
 
 void XBD_loadStringFromConstDataArea( char *dst, const char *src  ) {
