@@ -15,18 +15,18 @@ void usart_init()
     //P2DIR |= BIT4;                            // Set port dir
     //P2DIR &= ~BIT5;                           //set port dir
     UCA0CTL1 |= UCSSEL_2|UCSWRST;             // SMCLK
-#if F_CPU == F_CPU_DEFAULT
-    UCA0BR0 = 0x09;                           // 1MHz 115200
-    UCA0BR1 = 0x00;                           // 1MHz 115200
-    UCA0MCTL = 0x02;                          // Modulation
-#else
+//#if F_CPU == F_CPU_DEFAULT
+//    UCA0BR0 = 0x09;                           // 1MHz 115200
+//    UCA0BR1 = 0x00;                           // 1MHz 115200
+//    UCA0MCTL = 0x02;                          // Modulation
+//#else
 #define RND_UART_RM(x) ((x & 0x3) == 0x3 ? x | 0x4 : x ) >> 2
     //dynamically compute baudrate settings
     UCA0BR0 = (F_CPU/UART_BAUDRATE)%UINT8_MAX;           // 1MHz 115200
     UCA0BR1 = (F_CPU/UART_BAUDRATE)>>8;                  // 1MHz 115200
     UCA0MCTL = RND_UART_RM(((F_CPU<<5)/UART_BAUDRATE)&0x1F)<<1;      // Modulation
 #undef RND_UART_RM
-#endif
+//#endif
     UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
 
     //IE2_bit.UCA0RXIE = 1;       // RX Complete interrupt enabled
