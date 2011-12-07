@@ -20,6 +20,7 @@
 //#include "uart2.h"
 
 
+#define TIMEOUT 1000000
 
 // Standard I2C bit rates are:
 
@@ -79,6 +80,8 @@ static uint8_t (*i2cSlaveTransmit)(uint8_t transmitDataLengthMax, uint8_t* trans
 void i2cInit(void) {
 
     P3SEL |= 0x06;                            // Assign I2C pins to USCI_B0
+    P3SEL &= ~BIT4;
+    P3DIR |= BIT4;
 
     UCB0CTL1 |= UCSWRST;                      // Enable SW reset
     UCB0CTL0 &= ~UCMST;
@@ -135,62 +138,93 @@ void i2cSetSlaveTransmitHandler(uint8_t (*i2cSlaveTx_func)(uint8_t transmitDataL
 
 void twi_isr(){ 
 //#define DEBUG_I2C
+    #define START 0
+    #define RX 1
+    #define TX 2
+    #define DONE 3
 
-    if(UCB0STAT&UCSTTIFG){		//start condition?
+    static uint32_t timeout=0;
+    static uint8_t state=START;
+
+    switch(state){
+        case START:
+            if(UCB0STAT&UCSTTIFG){		//start condition?
 #ifdef DEBUG_I2C
-        XBD_debugOut("RX start\r\n");
+                XBD_debugOut("RX start\r\n");
 #endif
-        UCB0STAT &= ~UCSTTIFG;  //yes: clear start flag
-    }
-    if(UCB0STAT&UCSTPIFG){
-        if(I2cSendDataIndex == 0){ //Spurious stop
-            return;
-        }
-        // i2c receive is complete, call i2cSlaveReceive
-
-#ifdef DEBUG_I2C
-        XBD_debugOut("RX done\r\n");
-#endif
-        if(i2cSlaveReceive) i2cSlaveReceive(I2cReceiveDataIndex, I2cReceiveData);
-        I2cSendDataIndex = 0;	//reset counters
-        I2cReceiveDataIndex = 0;
-        UCB0STAT &= ~UCSTPIFG;
-    }
-
-
-    if(IFG2&UCB0RXIFG) { 
-        if(I2cReceiveDataIndex < I2C_RECEIVE_DATA_BUFFER_SIZE) {
-
-            // receive data byte and return ACK
-
-            I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
-            I2cReceiveDataIndex++;
-#ifdef DEBUG_I2C
-        	XBD_debugOut("RX byte\r\n");
-#endif
-        } else {
-            XBD_debugOut("NACK\r\n");
-
-            // receive data byte and return NACK
-
-            //I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
-            UCB0CTL1 |= UCTXNACK;
-            //I2cReceiveDataIndex++;
-        }
-
-
-    }
-
-
-    if(IFG2&UCB0TXIFG){       
-        //XBD_debugOut("TX byte\r\n");
-        if(I2cSendDataIndex==0){
-            // request data from application
-
-            if(i2cSlaveTransmit) {I2cSendDataLength = i2cSlaveTransmit(I2C_SEND_DATA_BUFFER_SIZE, I2cSendData);
+                UCB0STAT &= ~UCSTTIFG;  //yes: clear start flag
+                I2cSendDataIndex = 0;	//reset counters
+                I2cReceiveDataIndex = 0;
+                timeout = 0;
+                state = RX;
             }
-        }
-        UCB0TXBUF=I2cSendData[I2cSendDataIndex];
-        I2cSendDataIndex++;
+            break;
+        case RX:
+            if(IFG2&UCB0RXIFG) { 
+                if(I2cReceiveDataIndex < I2C_RECEIVE_DATA_BUFFER_SIZE) {
+
+                    // receive data byte and return ACK
+
+                    I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
+                    if(!(UCB0STAT&UCSTPIFG)){
+                        I2cReceiveDataIndex++;
+                    }
+#ifdef DEBUG_I2C
+                    XBD_debugOut("RX byte\r\n");
+#endif
+                } else {
+                    XBD_debugOut("NACK\r\n");
+
+                    // receive data byte and return NACK
+
+                    //I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
+                    UCB0CTL1 |= UCTXNACK;
+                    //I2cReceiveDataIndex++;
+                }
+            }
+            if(UCB0STAT&UCSTPIFG){
+                // i2c receive is complete, call i2cSlaveReceive
+
+#ifdef DEBUG_I2C
+                XBD_debugOut("RX done\r\n");
+#endif
+                P3OUT |= BIT4;
+                P3OUT &= ~BIT4;
+                if(i2cSlaveReceive) i2cSlaveReceive(I2cReceiveDataIndex, I2cReceiveData);
+                UCB0STAT &= ~UCSTPIFG;
+                state=TX;
+            }
+            break;
+        case TX:
+            if(IFG2&UCB0TXIFG){       
+                if(I2cSendDataIndex==0){
+#ifdef DEBUG_I2C
+                    XBD_debugOut("TX start\r\n");
+#endif
+                    // request data from application
+
+                    if(i2cSlaveTransmit) {I2cSendDataLength = i2cSlaveTransmit(I2C_SEND_DATA_BUFFER_SIZE, I2cSendData);
+                    }
+                }
+#ifdef DEBUG_I2C
+                XBD_debugOut("TX byte\r\n");
+#endif
+                
+                UCB0TXBUF=I2cSendData[I2cSendDataIndex];
+                I2cSendDataIndex++;
+            }
+            if(UCB0STAT&UCSTPIFG){
+                UCB0STAT &= ~UCSTPIFG;
+
+                state=START;
+            }
+            if(++timeout > TIMEOUT){
+                state = START;
+//#ifdef DEBUG_I2C
+                XBD_debugOut("I2C timeout :(\r\n");
+//#endif
+            }
+            break;
     }
+
 }
