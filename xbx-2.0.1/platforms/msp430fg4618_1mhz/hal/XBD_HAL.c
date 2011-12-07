@@ -14,7 +14,7 @@
 //#include <JTAGfunc.h>
 
 #define I2C_BAUDRATE 400
-#define SLAVE_ADDR 0
+#define SLAVE_ADDR 0x75
 
 
 #define STACK_CANARY (inv_sc?0x3A:0xC5)
@@ -73,7 +73,7 @@ void XBD_init() {
 
     usart_init();
 
-    XBD_debugOut("START ATmega644 HAL\r\n");
+    XBD_debugOut("START MSP430FG4618 HAL\r\n");
     XBD_debugOut("\r\n");
 
     i2cInit();
@@ -116,8 +116,8 @@ void XBD_serveCommunication() {
        */
  
     //if(UCB0STAT&UCSTTIFG) {
-    //if(((IFG2&UCB0RXIFG)== 1) | ((IFG2&UCB0TXIFG) == 1)) {
-        twi_isr();
+    //if(((IFG2&UCB0RXIFG)== 1) || ((IFG2&UCB0TXIFG) == 1)) {
+      twi_isr();
     //}
 }
 
