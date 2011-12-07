@@ -14,7 +14,7 @@ COMMON = -mmcu=$(MCU)
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON)
 ## F_CPU is 32x32768Hz crystal
-CFLAGS += -Wall -gdwarf-2 -std=gnu99 -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -DBOOTLOADER
+CFLAGS += -Wall -gdwarf-2 -std=gnu99  -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -DBOOTLOADER -DXBX_DEBUG_BL
 CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
 
 ## Assembly specific flags

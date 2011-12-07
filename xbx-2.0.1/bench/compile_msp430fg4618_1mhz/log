@@ -1,16 +1,340 @@
-Testing gcc -Os -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
-i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-compilation terminated.
-Testing gcc -O0 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
-i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-compilation terminated.
-Testing gcc -O1 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
-i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-compilation terminated.
-Testing gcc -O2 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
-i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-compilation terminated.
-Testing gcc -O3 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
-i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-compilation terminated.
+Testing msp430-gcc -Os -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+XBD_HAL.c: In function ‘XBD_switchToApplication’:
+XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.text' will not fit in region `rom'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.bss' will not fit in region `ram'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: section .vectors loaded at [000000000000ffe0,000000000000ffff] overlaps section .text loaded at [000000000000fc00,0000000000010c95]
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `ram' overflowed by 2280 bytes
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `rom' overflowed by 3494 bytes
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cInit':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x4): undefined reference to `__P3SEL'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0xa): undefined reference to `__P3SEL'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x10): undefined reference to `__P3DIR'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x14): undefined reference to `__UCB0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x1a): undefined reference to `__UCB0CTL0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x20): undefined reference to `__UCB0CTL0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x26): undefined reference to `__UCB0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cSetLocalDeviceAddr':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x2): undefined reference to `__UCB0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x16): undefined reference to `__UCB0I2COA'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x1c): undefined reference to `__UCB0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `twi_isr':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x14): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x1e): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x38): undefined reference to `__IFG2'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x4c): undefined reference to `__UCB0RXBUF'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x52): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x6a): undefined reference to `__UCB0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x6e): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x78): undefined reference to `__P3OUT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x7e): undefined reference to `__P3OUT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x96): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xa0): undefined reference to `__IFG2'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xcc): undefined reference to `__UCB0TXBUF'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xd6): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xe0): undefined reference to `__UCB0STAT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_init':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xe): undefined reference to `__SCFQCTL'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x12): undefined reference to `__SCFI0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x18): undefined reference to `__SCFI0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x1e): undefined reference to `__FLL_CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x74): undefined reference to `__P3OUT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x78): undefined reference to `__P3DIR'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x4): undefined reference to `__P3OUT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x2): undefined reference to `__P3OUT'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x16): undefined reference to `__TBCCTL0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x1a): undefined reference to `__TBCCTL0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x2c): undefined reference to `__TBR'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x34): undefined reference to `__TBR'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x3c): undefined reference to `__TBR'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x5a): undefined reference to `__TBR'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_init':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0xa): undefined reference to `__UCA0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x10): undefined reference to `__UCA0BR0'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x14): undefined reference to `__UCA0BR1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x1a): undefined reference to `__UCA0MCTL'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x20): undefined reference to `__UCA0CTL1'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_putc':
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_putc+0x2): undefined reference to `__IFG2'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_putc+0xa): undefined reference to `__UCA0TXBUF'
+msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O0 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+XBD_HAL.c: In function ‘XBD_switchToApplication’:
+XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.text' will not fit in region `rom'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.bss' will not fit in region `ram'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: section .vectors loaded at [000000000000ffe0,000000000000ffff] overlaps section .text loaded at [000000000000fc00,0000000000011269]
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `ram' overflowed by 2280 bytes
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `rom' overflowed by 4986 bytes
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cInit':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x2): undefined reference to `__P3SEL'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0xa): undefined reference to `__P3SEL'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0xe): undefined reference to `__P3SEL'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x16): undefined reference to `__P3SEL'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x1a): undefined reference to `__P3DIR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x22): undefined reference to `__P3DIR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x26): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x2c): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x30): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x38): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x3e): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x42): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x4a): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cSetLocalDeviceAddr':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0xc): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x12): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x28): undefined reference to `__UCB0I2COA'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x2c): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x34): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `twi_isr':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x14): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x1e): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x26): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x40): undefined reference to `__IFG2'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x5a): undefined reference to `__UCB0RXBUF'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x62): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x80): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x86): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x8a): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x94): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x9c): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xa0): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xa8): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xc2): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xca): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xd4): undefined reference to `__IFG2'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x10a): undefined reference to `__UCB0TXBUF'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x118): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x122): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x12a): undefined reference to `__UCB0STAT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_init':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x10): undefined reference to `__SCFQCTL'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x14): undefined reference to `__SCFI0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x1a): undefined reference to `__SCFI0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x1e): undefined reference to `__SCFI0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x26): undefined reference to `__SCFI0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x2a): undefined reference to `__FLL_CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x32): undefined reference to `__FLL_CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xa0): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xa4): undefined reference to `__P3DIR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xaa): undefined reference to `__P3DIR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionStartSignal':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0x2): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionStartSignal+0xa): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_sendExecutionCompleteSignal':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x2): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_sendExecutionCompleteSignal+0x8): undefined reference to `__P3OUT'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x30): undefined reference to `__TBCCTL0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x34): undefined reference to `__TBCCTL0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x3a): undefined reference to `__TBCCTL0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x44): undefined reference to `__TBR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x52): undefined reference to `__TBR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x68): undefined reference to `__TBR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0xac): undefined reference to `__TBR'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_init':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0xe): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x16): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x1c): undefined reference to `__UCA0BR0'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x20): undefined reference to `__UCA0BR1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x26): undefined reference to `__UCA0MCTL'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x2a): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x32): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_putc':
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_putc+0xa): undefined reference to `__IFG2'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_putc+0x16): undefined reference to `__UCA0TXBUF'
+msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O1 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+XBD_HAL.c: In function ‘XBD_switchToApplication’:
+XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.text' will not fit in region `rom'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.bss' will not fit in region `ram'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: section .vectors loaded at [000000000000ffe0,000000000000ffff] overlaps section .text loaded at [000000000000fc00,0000000000010d65]
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `ram' overflowed by 2280 bytes
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `rom' overflowed by 3702 bytes
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cInit':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x4): undefined reference to `__P3SEL'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0xa): undefined reference to `__P3SEL'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x10): undefined reference to `__P3DIR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x14): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x1a): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x20): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x26): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cSetLocalDeviceAddr':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x2): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x16): undefined reference to `__UCB0I2COA'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x1c): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `twi_isr':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x14): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x1e): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x38): undefined reference to `__IFG2'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x4c): undefined reference to `__UCB0RXBUF'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x52): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x6a): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x6e): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x78): undefined reference to `__P3OUT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x7e): undefined reference to `__P3OUT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x96): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xa0): undefined reference to `__IFG2'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xcc): undefined reference to `__UCB0TXBUF'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xd6): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xe0): undefined reference to `__UCB0STAT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_init':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xe): undefined reference to `__SCFQCTL'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x12): undefined reference to `__SCFI0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x18): undefined reference to `__SCFI0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x1e): undefined reference to `__FLL_CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x74): undefined reference to `__P3OUT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x78): undefined reference to `__P3DIR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x10): undefined reference to `__TBCCTL0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x14): undefined reference to `__TBCCTL0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x1a): undefined reference to `__P3OUT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x2e): undefined reference to `__TBR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x36): undefined reference to `__TBR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x3e): undefined reference to `__TBR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x5c): undefined reference to `__TBR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x60): undefined reference to `__P3OUT'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x7a): undefined reference to `__TBR'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_init':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0xa): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x10): undefined reference to `__UCA0BR0'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x14): undefined reference to `__UCA0BR1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x1a): undefined reference to `__UCA0MCTL'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x20): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_putc':
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_putc+0x4): undefined reference to `__IFG2'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_putc+0xe): undefined reference to `__UCA0TXBUF'
+msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O2 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+XBD_HAL.c: In function ‘XBD_switchToApplication’:
+XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.text' will not fit in region `rom'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.bss' will not fit in region `ram'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: section .vectors loaded at [000000000000ffe0,000000000000ffff] overlaps section .text loaded at [000000000000fc00,0000000000010d11]
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `ram' overflowed by 2280 bytes
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `rom' overflowed by 3618 bytes
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cInit':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x4): undefined reference to `__P3SEL'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0xa): undefined reference to `__P3SEL'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x10): undefined reference to `__P3DIR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x14): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x1a): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x20): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x26): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cSetLocalDeviceAddr':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x2): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x10): undefined reference to `__UCB0I2COA'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x16): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x22): undefined reference to `__UCB0I2COA'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x28): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `twi_isr':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xe): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x18): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x38): undefined reference to `__IFG2'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x66): undefined reference to `__UCB0TXBUF'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x70): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x7a): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xba): undefined reference to `__IFG2'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xce): undefined reference to `__UCB0RXBUF'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xd4): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xe2): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xec): undefined reference to `__P3OUT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xf2): undefined reference to `__P3OUT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x10a): undefined reference to `__UCB0STAT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x11c): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_init':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xe): undefined reference to `__SCFQCTL'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x12): undefined reference to `__SCFI0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x18): undefined reference to `__SCFI0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x1e): undefined reference to `__FLL_CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x74): undefined reference to `__P3OUT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x78): undefined reference to `__P3DIR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x10): undefined reference to `__TBCCTL0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x14): undefined reference to `__TBCCTL0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x1a): undefined reference to `__P3OUT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x22): undefined reference to `__TBR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x28): undefined reference to `__TBR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x30): undefined reference to `__TBR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x46): undefined reference to `__TBR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x4a): undefined reference to `__P3OUT'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x68): undefined reference to `__TBR'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_init':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0xa): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x10): undefined reference to `__UCA0BR0'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x14): undefined reference to `__UCA0BR1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x1a): undefined reference to `__UCA0MCTL'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x20): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_puts':
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_puts+0x1e): undefined reference to `__IFG2'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_puts+0x26): undefined reference to `__UCA0TXBUF'
+msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
+Testing msp430-gcc -O3 -fomit-frame-pointer -ffunction-sections -fdata-sections -Wl,-gc-sections
+XBD_HAL.c: In function ‘XBD_switchToApplication’:
+XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.text' will not fit in region `rom'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: xbdprog.bin section `.bss' will not fit in region `ram'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: section .vectors loaded at [000000000000ffe0,000000000000ffff] overlaps section .text loaded at [000000000000fc00,0000000000010e39]
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `ram' overflowed by 2284 bytes
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking /usr/local/lib/gcc/msp430/4.5.3/../../../../msp430/bin/ld: region `rom' overflowed by 3914 bytes
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cInit':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x4): undefined reference to `__P3SEL'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0xa): undefined reference to `__P3SEL'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x10): undefined reference to `__P3DIR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x14): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x1a): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x20): undefined reference to `__UCB0CTL0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cInit+0x26): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `i2cSetLocalDeviceAddr':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x2): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x10): undefined reference to `__UCB0I2COA'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x16): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x22): undefined reference to `__UCB0I2COA'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.i2cSetLocalDeviceAddr+0x28): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.o: In function `twi_isr':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xe): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x18): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x38): undefined reference to `__IFG2'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x66): undefined reference to `__UCB0TXBUF'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x70): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x7a): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xba): undefined reference to `__IFG2'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xce): undefined reference to `__UCB0RXBUF'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xd4): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xe2): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xec): undefined reference to `__P3OUT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0xf2): undefined reference to `__P3OUT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x10a): undefined reference to `__UCB0STAT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking i2c.c:(.text.twi_isr+0x11c): undefined reference to `__UCB0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_init':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0xe): undefined reference to `__SCFQCTL'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x12): undefined reference to `__SCFI0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x18): undefined reference to `__SCFI0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x1e): undefined reference to `__FLL_CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x74): undefined reference to `__P3OUT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_init+0x78): undefined reference to `__P3DIR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.o: In function `XBD_busyLoopWithTiming':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x10): undefined reference to `__TBCCTL0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x14): undefined reference to `__TBCCTL0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x1a): undefined reference to `__P3OUT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x22): undefined reference to `__TBR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x28): undefined reference to `__TBR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x30): undefined reference to `__TBR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x46): undefined reference to `__TBR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x4a): undefined reference to `__P3OUT'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking XBD_HAL.c:(.text.XBD_busyLoopWithTiming+0x68): undefined reference to `__TBR'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_init':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0xa): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x10): undefined reference to `__UCA0BR0'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x14): undefined reference to `__UCA0BR1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x1a): undefined reference to `__UCA0MCTL'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_init+0x20): undefined reference to `__UCA0CTL1'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.o: In function `usart_puts':
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_puts+0x1e): undefined reference to `__IFG2'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking RS232.c:(.text.usart_puts+0x26): undefined reference to `__UCA0TXBUF'
+msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err linking collect2: ld returned 1 exit status
 Found no working compilers

@@ -90,13 +90,13 @@ void XBD_BL_DisregardBlock(uint8_t len, uint8_t *data) {
 	XBD_debugOut(" :");
 	for (ctr = 0; ctr < len - CRC16SIZE; ++ctr) {
 		if (0 == ctr % 16)
-			XBD_debugOut("\n");
+			XBD_debugOut("\r\n");
 		XBD_debugOutHexByte(data[ctr]);
 	}
-	XBD_debugOut("\n");
+	XBD_debugOut("\r\n");
 	XBD_debugOutHexByte(crc >> 8), XBD_debugOutHexByte(crc & 0xff), XBD_debugOutChar('_');
 	XBD_debugOutHexByte(rx_crc >> 8), XBD_debugOutHexByte(rx_crc & 0xff);
-	XBD_debugOut("\n---------------------\n");
+	XBD_debugOut("\r\n");
 	return;
 }
 
@@ -143,9 +143,9 @@ void XBD_BL_HandleProgramFlashRequest(uint8_t len, uint8_t *data) {
 		XBD_loadStringFromConstDataArea((char *)buf, XBDpff);
 	}
 
-//	XBD_debugOut("\n");
+//	XBD_debugOut("\r\n");
 //	XBD_debugOut((char *)buf);
-//	XBD_debugOut("\n");
+//	XBD_debugOut("\r\n");
 	strcpy((char *)XBD_response, (char *)buf);
 	realTXlen=XBD_COMMAND_LEN+CRC16SIZE;
 	return;
@@ -197,9 +197,9 @@ void XBD_BL_HandleFlashDownloadRequest(uint8_t len, uint8_t *data) {
 		XBD_loadStringFromConstDataArea((char *)buf, XBDpff);
 	}
 
-//	XBD_debugOut("\n");
+//	XBD_debugOut("\r\n");
 //	XBD_debugOut((char *)buf);
-//	XBD_debugOut("\n");
+//	XBD_debugOut("\r\n");
 	strcpy((char *)XBD_response, (char *)buf);
 	realTXlen=XBD_COMMAND_LEN+CRC16SIZE;
 	return;
@@ -245,7 +245,7 @@ void FRW_msgRecHand(uint8_t len, uint8_t* data) {
 	XBD_debugOut("Rec'd len=");
 	XBD_debugOutHexByte(len);
 	XBD_debugOutChar('.');
-	XBD_debugOut("\n");
+	XBD_debugOut("\r\n");
 	#endif
 
 	//check crc and disregard block if wrong
@@ -326,7 +326,7 @@ void FRW_msgRecHand(uint8_t len, uint8_t* data) {
 	XBD_loadStringFromConstDataArea((char *)XBD_response, XBDunk);
 	#ifdef XBX_DEBUG_BL
 	XBD_debugOut((char *)XBD_response);
-	XBD_debugOut("\n");
+	XBD_debugOut("\r\n");
 	#endif
 }
 
@@ -334,14 +334,14 @@ uint8_t FRW_msgTraHand(uint8_t maxlen, uint8_t* data) {
  	if(maxlen <= CRC16SIZE) {
         	XBD_debugOut("MsgTraHand: Maxlen too small: ");
         	XBD_debugOutHexByte(maxlen);
-                XBD_debugOut("\n");
+                XBD_debugOut("\r\n");
 	}
                                         
 	if (maxlen > XBD_ANSWER_MAXLEN)
 	{
 		//XBD_debugOut("MsgTraHand: Maxlen too large: ");
 		//XBD_debugOutHexByte(maxlen);
-    //XBD_debugOut("\n");
+    //XBD_debugOut("\r\n");
 		maxlen = XBD_ANSWER_MAXLEN;
 	}
 
@@ -359,7 +359,7 @@ int main(void)
 
 	XBD_init();
 
-	XBD_debugOut("XBD BL "XBX_REVISION" started\r\n");
+	XBD_debugOut("\r\n");
 
 	while(1)
 	{

@@ -1,15 +1,15 @@
-+gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
-+compile gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-+compile gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
-+gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
-+compile gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-+compile gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
-+gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
-+compile gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-+compile gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
-+gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
-+compile gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-+compile gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
-+gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.6.1 (Ubuntu/Linaro 4.6.1-9ubuntu3)
-+compile gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c i2c.c:6:45: fatal error: msp430xG461x.h: No such file or directory
-+compile gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling i2c.c compilation terminated.
++msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
++compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c: In function ‘XBD_switchToApplication’:
++compile msp430-gcc_-Os_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
++msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
++compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c: In function ‘XBD_switchToApplication’:
++compile msp430-gcc_-O0_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
++msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
++compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c: In function ‘XBD_switchToApplication’:
++compile msp430-gcc_-O1_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
++msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
++compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c: In function ‘XBD_switchToApplication’:
++compile msp430-gcc_-O2_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
++msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections COMPILERVERSION 4.5.3 (GCC)
++compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c: In function ‘XBD_switchToApplication’:
++compile msp430-gcc_-O3_-fomit-frame-pointer_-ffunction-sections_-fdata-sections_-Wl,-gc-sections err compiling XBD_HAL.c XBD_HAL.c:190:30: warning: initialization makes pointer from integer without a cast
