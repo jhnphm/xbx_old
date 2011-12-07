@@ -1,0 +1,12 @@
+#!/bin/bash
+
+sizeOpts="-ffunction-sections -fdata-sections -Wl,-gc-sections"
+
+
+cat <<EOF
+msp430-gcc -mmcu=msp430xG4618 -Os -fomit-frame-pointer $sizeOpts
+msp430-gcc -mmcu=msp430xG4618 -O0 -fomit-frame-pointer $sizeOpts
+msp430-gcc -mmcu=msp430xG4618 -O1 -fomit-frame-pointer $sizeOpts
+msp430-gcc -mmcu=msp430xG4618 -O2 -fomit-frame-pointer $sizeOpts
+msp430-gcc -mmcu=msp430xG4618 -O3 -fomit-frame-pointer $sizeOpts
+EOF

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # what platform
-platform="msp430fg4618_1mhz"
+platform="msp430fg4618_4mhz"
 #platform="atmega644_8mhz"
 #platform="atmega1281_16mhz"
 #platform="sample"
