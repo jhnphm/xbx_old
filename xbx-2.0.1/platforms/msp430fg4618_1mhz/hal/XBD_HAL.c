@@ -144,36 +144,50 @@ void XBD_programPage( uint32_t pageStartAddress, uint8_t * buf ) {
 
     //	Interrupts disabled in XBD_init()
     unsigned int i;
+    uint16_t *startAddress = (uint16_t *) (uint16_t) pageStartAddress;
+    uint16_t *bufPtr = (uint16_t *)buf;
 
+    __disable_interrupt();
     //	Erase a page of flash
-    //WDTCTL = 0x5A80;
-    FCTL1 = 0x0A502;
-    FCTL3 = 0x0A500;
-    uint8_t *startAddress = (uint8_t *) (uint16_t) pageStartAddress;
-    *startAddress = 0x00;
-    for(i=0;i<1000; i++)
-        asm("nop");
-    //WDTCTL = WDTPW+0x0c;
+    FCTL2 = FWKEY|FSSEL1|FN0; // Set clock divider to 1
+    FCTL3 = FWKEY;            // Unlock
+    FCTL1 = FWKEY|ERASE;      // Set erase bit
+    *startAddress = 0x00;     // Perform erase
+    // Waiting until erase and clearing bit should be unnecessary
+    // when erasing from program running from flash
+#if 0
+    while(FCTL3&BUSY);        // Wait until erase done
+    FCTL1 = FWKEY;            // Clear erase bit
+#endif
+    //Disabling watchdog should be unnecessary, as it should be disabled already
+#if 0
+    WDTCTL = WDTPW+WDTHOLD;            // Stop WDT
+#endif
+
+    //for(i=0;i<1000; i++)
+    //    asm("nop");
+    ////WDTCTL = WDTPW+0x0c;
 
     //	Write to flash
-    startAddress = (uint8_t *) (uint16_t) pageStartAddress;  //   16-bits
-    while(BUSY & FCTL3);		//	Wait until flash ready
-    FCTL3 = FWKEY;	//	Clear lock bits (LOCK & LOCKA)
-    FCTL1 = FWKEY + WRT;	//	Enable byte/word write mode
-    u16 u;
-    for(u = 0;u < 256; ++u)			//may need to change to 128
+    startAddress = (uint16_t *) (uint16_t) pageStartAddress; // 16-bits
+    while(FCTL3&FCTL3);                                      // Wait until flash ready
+    // FCTL3 = FWKEY;                                        // Clear lock bits (LOCK & LOCKA)
+    FCTL1 = FWKEY | WRT;                                     // Enable byte/word write mode
+    uint16_t u;
+    for(u = 0;u < PAGESIZE/(sizeof(uint16_t)); u++)          // may need to change to 128
     {
-        *startAddress++ = *buf++;
+    *startAddress++ = *bufPtr++;
     }
-    FCTL1 = FWKEY;
-    FCTL3 ^= (FXKEY + LOCK);
+    FCTL1 = FWKEY;                                           // Clear write bit
+    FCTL3 = FWKEY|LOCK;                                      // Lock flash
+    __enable_interrupt();
 }
 
 void XBD_switchToApplication() {
     /* execute the code in the binary buffer */
     // pointer called reboot that points to the reset vector
     // bootloader is located at the end of flash
-    void (*reboot)( void ) = 0x0000; // defines the function reboot to location 0x0000
+    void (*reboot)( void ) = FLASH_ADDR_MIN; // defines the function reboot to location 0x0000
     reboot();	// calls function reboot function, did not need to change unless change location to 0x1000, at flash info memory
 }
 
