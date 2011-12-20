@@ -20,8 +20,6 @@
 //#include "uart2.h"
 
 
-#define TIMEOUT 1000000
-
 // Standard I2C bit rates are:
 
 // 100KHz for slow speed
@@ -141,30 +139,32 @@ void twi_isr(){
     #define START 0
     #define RX 1
     #define TX 2
-    #define DONE 3
+    #define TXSTART 3
+    #define DONE 4
 
-    static uint32_t timeout=0;
     static uint8_t state=START;
 
     switch(state){
         case START:
             if(UCB0STAT&UCSTTIFG){		//start condition?
 #ifdef DEBUG_I2C
-                XBD_debugOut("RX start\r\n");
+                XBD_debugOut("Start\r\n");
 #endif
                 UCB0STAT &= ~UCSTTIFG;  //yes: clear start flag
                 I2cSendDataIndex = 0;	//reset counters
                 I2cReceiveDataIndex = 0;
-                timeout = 0;
+            }
+            if(IFG2&UCB0TXIFG) { 
+                state = TX;
+            }
+            if(IFG2&UCB0RXIFG) { 
                 state = RX;
             }
             break;
         case RX:
             if(IFG2&UCB0RXIFG) { 
                 if(I2cReceiveDataIndex < I2C_RECEIVE_DATA_BUFFER_SIZE) {
-
                     // receive data byte and return ACK
-
                     I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
                     if(!(UCB0STAT&UCSTPIFG)){
                         I2cReceiveDataIndex++;
@@ -174,25 +174,21 @@ void twi_isr(){
 #endif
                 } else {
                     XBD_debugOut("NACK\r\n");
-
                     // receive data byte and return NACK
-
                     //I2cReceiveData[I2cReceiveDataIndex] = UCB0RXBUF;
+                    IFG2 &= ~UCB0RXIFG;
                     UCB0CTL1 |= UCTXNACK;
                     //I2cReceiveDataIndex++;
                 }
             }
             if(UCB0STAT&UCSTPIFG){
                 // i2c receive is complete, call i2cSlaveReceive
-
 #ifdef DEBUG_I2C
                 XBD_debugOut("RX done\r\n");
 #endif
-                P3OUT |= BIT4;
-                P3OUT &= ~BIT4;
                 if(i2cSlaveReceive) i2cSlaveReceive(I2cReceiveDataIndex, I2cReceiveData);
                 UCB0STAT &= ~UCSTPIFG;
-                state=TX;
+                state=START;
             }
             break;
         case TX:
@@ -215,15 +211,12 @@ void twi_isr(){
             }
             if(UCB0STAT&UCSTPIFG){
                 UCB0STAT &= ~UCSTPIFG;
-
                 state=START;
             }
-            if(++timeout > TIMEOUT){
-                state = START;
-//#ifdef DEBUG_I2C
-                XBD_debugOut("I2C timeout :(\r\n");
-//#endif
-            }
+            if(UCB0STAT&UCNACKIFG){
+                XBD_debugOut("I2C NAK\r\n");
+                state=START;
+            };
             break;
     }
 
