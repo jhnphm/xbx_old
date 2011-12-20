@@ -1,6 +1,6 @@
 #include "global.h"
 /** define LITTLE_ENDIAN or BIG_ENDIAN */
-#define LITTLE_ENDIAN
+#define XBX_LITTLE_ENDIAN
 
 /** prefix for const variables in static memory areas, e.g. PROGMEN for avr,
 *    empty for most targets
@@ -24,6 +24,6 @@
 #define FLASH_ADDR_MAX (0xdfff)
 
 
-#define DEVICE_SPECIFIC_SANE_TC_VALUE F_CPU
+#define DEVICE_SPECIFIC_SANE_TC_VALUE 30000
 
 

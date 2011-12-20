@@ -143,7 +143,7 @@ void XBD_programPage( uint32_t pageStartAddress, uint8_t * buf ) {
        application binary */
 
     //	Interrupts disabled in XBD_init()
-    unsigned int i;
+    uint16_t u;
     uint16_t *startAddress = (uint16_t *) (uint16_t) pageStartAddress;
     uint16_t *bufPtr = (uint16_t *)buf;
 
@@ -173,7 +173,6 @@ void XBD_programPage( uint32_t pageStartAddress, uint8_t * buf ) {
     while(FCTL3&FCTL3);                                      // Wait until flash ready
     // FCTL3 = FWKEY;                                        // Clear lock bits (LOCK & LOCKA)
     FCTL1 = FWKEY | WRT;                                     // Enable byte/word write mode
-    uint16_t u;
     for(u = 0;u < PAGESIZE/(sizeof(uint16_t)); u++)          // may need to change to 128
     {
     *startAddress++ = *bufPtr++;
@@ -187,7 +186,7 @@ void XBD_switchToApplication() {
     /* execute the code in the binary buffer */
     // pointer called reboot that points to the reset vector
     // bootloader is located at the end of flash
-    void (*reboot)( void ) = FLASH_ADDR_MIN; // defines the function reboot to location 0x0000
+    void (*reboot)( void ) = (void*)FLASH_ADDR_MIN; // defines the function reboot to location 0x0000
     reboot();	// calls function reboot function, did not need to change unless change location to 0x1000, at flash info memory
 }
 
@@ -205,6 +204,9 @@ void XBD_switchToBootLoader() {
 
 }
 
+/**
+ * Broken
+ */
 uint32_t XBD_busyLoopWithTiming(uint32_t approxCycles) {
     /* wait for approximatly approxCycles,
      * then return the number of cycles actually waited */
@@ -281,6 +283,14 @@ interrupt (PORT2_VECTOR) soft_reset(void){
     //software reset (this is a soft reset equivalent on msp430 at 32ms 1Mhz smclk)
     //  wdtctl = WDT_MDLY_32; //wdt_enable(WDTO_15MS); //set watch dog WDT_MDLY_32
     while(1);
+}
+void XBD_startWatchDog(uint32_t seconds)
+{
+  (void)seconds;
+}
+
+void XBD_stopWatchDog()
+{
 }
 
 #if 0
