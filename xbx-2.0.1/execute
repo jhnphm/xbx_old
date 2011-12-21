@@ -194,7 +194,16 @@ do
         lastBinary=$binary
         
         # test checksum
-        outputfile=`tempfile`
+        if [ -e '/bin/tempfile' ]
+        then
+            outputfile=`/bin/tempfile`
+        elif [ -e '/bin/mktemp' ]
+        then
+            outputfile=`/bin/mktemp`
+        else
+            outputfile='/tmp/xbx_run_'$$'.tmp'
+        fi
+
         doTimeStamp
         $xbhCall -c -e > "$outputfile"
         returnCode=`head -n 1 "$outputfile"`
