@@ -78,8 +78,6 @@ static uint8_t (*i2cSlaveTransmit)(uint8_t transmitDataLengthMax, uint8_t* trans
 void i2cInit(void) {
 
     P3SEL |= 0x06;                            // Assign I2C pins to USCI_B0
-    P3SEL &= ~BIT4;
-    P3DIR |= BIT4;
 
     UCB0CTL1 |= UCSWRST;                      // Enable SW reset
     UCB0CTL0 &= ~UCMST;

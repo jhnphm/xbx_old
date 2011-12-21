@@ -6,7 +6,7 @@
 PROJECT = XBD_BL_MSP430FG4618_1MHz
 MCU = msp430xG4618
 TARGET = XBD_BL_MSP430FG4618_1MHz.elf
-CC = msp430-gcc -gdwarf-2 -g3 
+CC = msp430-gcc -gdwarf-2 -g3 -Os
 
 ## Options common to compile, link and assembly rules
 COMMON = -mmcu=$(MCU)

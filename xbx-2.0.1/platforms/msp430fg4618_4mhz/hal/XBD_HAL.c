@@ -62,13 +62,6 @@ void XBD_init() {
     //TODO Manually disable all other interrupts.
     //Due to 
 
-    //Enable interrupt for soft reset on pin 2.0
-    P2SEL &= ~BIT0;
-    P2DIR &= ~BIT0;
-    P2IES |= BIT0; //Trigger on rising edge
-    P2IE = BIT0;
-
-    __enable_interrupt();
     
 
     usart_init();
@@ -83,16 +76,23 @@ void XBD_init() {
     i2cSetSlaveTransmitHandler( FRW_msgTraHand );
 
     //Set Port 2.0 to output - Execution signal to XBH
-    P3OUT = BIT0;     // Set pin high
+    P3SEL &= ~BIT0;
     P3DIR |= BIT0;
+    P3OUT |= BIT0;     // Set pin high
 
+    //Enable interrupt for soft reset on pin 2.0
+    P2SEL &= ~BIT0;
+    P2DIR &= ~BIT0;
+    P2IES |= BIT0; //Trigger on rising edge
+    P2IE = BIT0;
+
+    __enable_interrupt();
 }
 
 
 inline void XBD_sendExecutionStartSignal() {
-    /* code for output pin = on here */
     P3OUT &= (~BIT0);
-
+    /* code for output pin = on here */
 }
 
 inline void XBD_sendExecutionCompleteSignal() {
@@ -170,7 +170,7 @@ void XBD_programPage( uint32_t pageStartAddress, uint8_t * buf ) {
 
     //	Write to flash
     startAddress = (uint16_t *) (uint16_t) pageStartAddress; // 16-bits
-    while(FCTL3&FCTL3);                                      // Wait until flash ready
+    while(FCTL3&BUSY);                                      // Wait until flash ready
     // FCTL3 = FWKEY;                                        // Clear lock bits (LOCK & LOCKA)
     FCTL1 = FWKEY | WRT;                                     // Enable byte/word write mode
     for(u = 0;u < PAGESIZE/(sizeof(uint16_t)); u++)          // may need to change to 128
@@ -207,33 +207,26 @@ void XBD_switchToBootLoader() {
 /**
  * Broken
  */
-uint32_t XBD_busyLoopWithTiming(uint32_t approxCycles) {
+uint32_t XBD_busyLoopWithTiming(volatile uint32_t approxCycles) {
     /* wait for approximatly approxCycles,
      * then return the number of cycles actually waited */
     /* Code from atmega_common XBD_shared_HAL.i */
     uint32_t exactCycles=0;
-    uint16_t lastTCNT=0;
-    uint16_t overRuns=0;
+    //Macro to cast registers to larger type since thye have adjacent addresses.
+#define RTCNT (*(volatile uint32_t*) 0x42)
+    //uint16_t lastTCNT=0;
+    //uint16_t overRuns=0; //Overruns not necessary, 32 bit counter
 
-    TBCCTL0 = TBSSEL_2 | ID_0 | MC_2;	//SMCLK, div 1, continuous, no interrupts
-    //TIMSK1 = 0;	//no interrupts
-
-    TBCCTL0 |= TBCLR;	//Clear timer register
+    __disable_interrupt();
+    RTCCTL = RTCHOLD | RTCMODE1 | RTCTEV1|RTCTEV0;
+    RTCNT = 0;
     XBD_sendExecutionStartSignal();
-
-    while(exactCycles < approxCycles)
-    {
-        if(lastTCNT > TBR)
-        {
-            ++overRuns;
-        }
-        lastTCNT=TBR;
-        exactCycles = ((uint32_t)overRuns<<16)|TBR;
-    }
-
-    exactCycles = ((uint32_t)overRuns<<16);
-    exactCycles |= TBR;
+    RTCCTL &= ~RTCHOLD; //Start clock
+    while(RTCNT < approxCycles);
+    RTCCTL |= RTCHOLD; //Stop clock
     XBD_sendExecutionCompleteSignal();
+    exactCycles = RTCNT;
+    __enable_interrupt();
 
     return exactCycles;
 }
