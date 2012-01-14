@@ -2,7 +2,7 @@
 //#include <io.h>
 //#include <interrupt.h>
 //#include <io430xG46x.h>
-#include <msp430fg4618.h>
+#include <msp430.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -15,6 +15,7 @@
 */
 
 #include "i2c.h"
+#include <XBD_HAL.h>
 #include <XBD_debug.h>
 
 //#include "uart2.h"
