@@ -1,4 +1,4 @@
-#include <msp430fg4618.h>   /* msp430-gcc */
+#include <msp430.h>   /* msp430-gcc */
 #include <XBD_HAL.h>
 #include <XBD_FRW.h>
 #include <XBD_debug.h>
@@ -185,23 +185,18 @@ void XBD_programPage( uint32_t pageStartAddress, uint8_t * buf ) {
 void XBD_switchToApplication() {
     /* execute the code in the binary buffer */
     // pointer called reboot that points to the reset vector
-    // bootloader is located at the end of flash
-    void (*reboot)( void ) = (void*)FLASH_ADDR_MIN; // defines the function reboot to location 0x0000
-    reboot();	// calls function reboot function, did not need to change unless change location to 0x1000, at flash info memory
+    // bootloader is located at 0xe000
+    void (*reboot)( void ) = (void*)FLASH_ADDR_MIN; // defines the function reboot to location 0x3200
+    reboot();	// calls function reboot function
 }
 
 
 void XBD_switchToBootLoader() {
-    /* switch back from uploaded code to boot loader */
-    _RESET();
-    //  NAKED(_reset_vector__)
-    //  {
-    //    /* place your startup code here */
-    //    /* Make shure, the branch to main (or to your start
-    //    routine) is the last line in the function */
-    //    __asm__ __volatile__("br #main"::);
-    //  }
-
+    /* execute the code in the binary buffer */
+    // pointer called reboot that points to the reset vector
+    // app is located at 0x3200
+    void (*reboot)( void ) = (void*)(FLASH_ADDR_MAX+1); // defines the function reboot to location 0x0000
+    reboot();	// calls function reboot function, did not need to change unless change location to 0x1000, at flash info memory
 }
 
 /**
@@ -243,7 +238,7 @@ void XBD_paintStack(void) {
 
     unsigned short *address = &_end;
     register void * __stackptr asm("r1");   ///<Access to the stack pointer
-    while(address <= (unsigned short *)__stackptr)
+    while(address <  ((unsigned short *)__stackptr)-1)
     {
         *address++ = STACK_CANARY;
         //++p;
@@ -257,7 +252,7 @@ uint32_t XBD_countStack(void) {
     unsigned short *address = &_end;
     register void * __stackptr asm("r1");   ///<Access to the stack pointer
     register uint16_t c = 0;
-    while(*address == STACK_CANARY && address <= (unsigned short *)__stackptr)
+    while(*address == STACK_CANARY && address < (unsigned short *)__stackptr)
     {
         ++address;
         ++c;
@@ -265,6 +260,19 @@ uint32_t XBD_countStack(void) {
     return (uint32_t)c;
 }
 
+
+//NOPs, since we can do external reset
+void XBD_startWatchDog(uint32_t seconds)
+{
+}
+
+void XBD_stopWatchDog()
+{
+}
+
+/**
+ * Soft reset using interrupt lines from XBH
+ */
 interrupt (PORT2_VECTOR) soft_reset(void){
     P2IFG &= ~BIT0; //Clear IFG for pin 2.0
     WDTCTL = 0;     //Write invalid key to trigger soft reset
@@ -277,22 +285,4 @@ interrupt (PORT2_VECTOR) soft_reset(void){
     //  wdtctl = WDT_MDLY_32; //wdt_enable(WDTO_15MS); //set watch dog WDT_MDLY_32
     while(1);
 }
-void XBD_startWatchDog(uint32_t seconds)
-{
-  (void)seconds;
-}
 
-void XBD_stopWatchDog()
-{
-}
-
-#if 0
-/* To be removed */
-
-int main (void)
-{
-    XBD_countStack();
-    XBD_paintStack();
-
-}
-#endif
