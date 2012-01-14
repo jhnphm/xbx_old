@@ -20,7 +20,7 @@ void usart_init()
 //    UCA0BR1 = 0x00;                           // 1MHz 115200
 //    UCA0MCTL = 0x02;                          // Modulation
 //#else
-#define RND_UART_RM(x) ((x & 0x3) == 0x3 ? x | 0x4 : x ) >> 2
+#define RND_UART_RM(x) (((x) & 0x3) == 0x3 ? (x) | 0x4 : (x)) >> 2 
     //dynamically compute baudrate settings
     UCA0BR0 = (F_CPU/UART_BAUDRATE)%UINT8_MAX;           // 1MHz 115200
     UCA0BR1 = (F_CPU/UART_BAUDRATE)>>8;                  // 1MHz 115200
