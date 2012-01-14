@@ -4,17 +4,17 @@
 
 ## General Flags
 PROJECT = XBD_BL_MSP430FG4618_1MHz
-MCU = msp430xG4618
+MCU = msp430fg4618
 TARGET = XBD_BL_MSP430FG4618_1MHz.elf
-CC = msp430-gcc -gdwarf-2 -g3 -Os
+CC = msp430-gcc
 
 ## Options common to compile, link and assembly rules
 COMMON = -mmcu=$(MCU)
 
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON)
-## F_CPU is 32x32768Hz crystal
-CFLAGS += -Wall -gdwarf-2 -std=gnu99  -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -DBOOTLOADER -DXBX_DEBUG_BL
+CFLAGS += -Wall -gdwarf-2 -std=gnu99  -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums -Os -DBOOTLOADER 
+#CFLAGS += -g3 -DXBX_DEBUG_BL 
 CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
 
 ## Assembly specific flags
