@@ -11,9 +11,9 @@ use POSIX qw(ceil floor);
 use Getopt::Long;    
 
 # default values for options 
-my $pageSize=256;
+my $pageSize=512;
 my $uploadFile="";
-my $targetIp="192.168.10.99";
+my $targetIp="172.16.100.10";
 my $targetPort="22595";
 my $verbose=0;
 my $quiet=0;
