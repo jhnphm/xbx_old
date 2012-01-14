@@ -33,7 +33,7 @@ void XBD_debugOutBuffer(char *name, uint8_t *buf, uint16_t len)
 	uint16_t ctr;
 	unsigned char c;
 
-	XBD_debugOut("\n BUF => ");
+	XBD_debugOut("\r\n BUF => ");
 	XBD_debugOut(name);
 	XBD_debugOut(", 0x");
 	XBD_debugOutHex32Bit(len);
@@ -41,17 +41,17 @@ void XBD_debugOutBuffer(char *name, uint8_t *buf, uint16_t len)
 	
 	for (ctr = 0; ctr < len; ++ctr) {
 		if (0 == ctr % 16)
-			XBD_debugOutChar('\n');
+			XBD_debugOut("\r\n");
 		XBD_debugOutHexByte(buf[ctr]);
 	}
-	XBD_debugOut("\n ASCII ");	
+	XBD_debugOut("\r\n ASCII ");	
 	for (ctr = 0; ctr < len; ++ctr) {
 		if (0 == ctr % 16)
-			XBD_debugOutChar('\n');
+			XBD_debugOut("\r\n");
 		c=buf[ctr];
 		if(c >= 32 && c < 128) XBD_debugOutChar(buf[ctr]);
 		else XBD_debugOutChar('?');
 		XBD_debugOutChar(' ');
 	}
-	XBD_debugOut("\n");	
+	XBD_debugOut("\r\n");	
 }
