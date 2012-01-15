@@ -2,6 +2,7 @@
 
 # what platform
 platform="msp430fg4618_4mhz"
+#platform="atmega644_16mhz"
 #platform="atmega644_8mhz"
 #platform="atmega1281_16mhz"
 #platform="sample"
@@ -17,7 +18,7 @@ recompile=1
 # creates at max one binary per implementation
 # useful for fast runs or testing
 # (absent => 0)
-#only_one_binary=1
+only_one_binary=0
 
 
 # To get algorithms to benchmark the following steps are neccessary:
@@ -37,12 +38,14 @@ recompile=1
 #onlyhash="whirlpool"
 #onlyhash="echo256"
 #onlyhash="edonr256"
-onlyhash="groestl256"
+#onlyhash="groestl256"
+#onlyhash="fugue256"
 #onlyhash="essence224"
 #onlyhash="hamsi"
 #onlyhash="blake32"
 #onlyhash="keccakr1024c576"
 #onlyhash="simd256"
+onlyhash="blake256"
 
 
 # ignore implementations matching this patters
@@ -58,7 +61,7 @@ algobase="algobase"
 
 
 # activate to use ccache
-#CCACHE=ccache
+CCACHE=ccache
 
 # ---- end of user options --- 
 
