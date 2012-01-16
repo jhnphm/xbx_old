@@ -42,10 +42,9 @@ only_one_binary=0
 #onlyhash="fugue256"
 #onlyhash="essence224"
 #onlyhash="hamsi"
-#onlyhash="blake32"
+onlyhash="blake32"
 #onlyhash="keccakr1024c576"
 #onlyhash="simd256"
-onlyhash="blake256"
 
 
 # ignore implementations matching this patters

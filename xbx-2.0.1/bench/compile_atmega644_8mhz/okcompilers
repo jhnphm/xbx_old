@@ -1,5 +1,0 @@
-avr-gcc -pipe -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -mmcu=atmega644 -DF_CPU=8000000L -ffunction-sections -fdata-sections -Wl,-gc-sections -Os
-avr-gcc -pipe -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -mmcu=atmega644 -DF_CPU=8000000L -ffunction-sections -fdata-sections -Wl,-gc-sections -O0
-avr-gcc -pipe -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -mmcu=atmega644 -DF_CPU=8000000L -ffunction-sections -fdata-sections -Wl,-gc-sections -O1
-avr-gcc -pipe -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -mmcu=atmega644 -DF_CPU=8000000L -ffunction-sections -fdata-sections -Wl,-gc-sections -O2
-avr-gcc -pipe -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -mmcu=atmega644 -DF_CPU=8000000L -ffunction-sections -fdata-sections -Wl,-gc-sections -O3
