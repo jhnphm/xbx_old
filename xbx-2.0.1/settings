@@ -38,14 +38,17 @@ only_one_binary=0
 #onlyhash="whirlpool"
 #onlyhash="echo256"
 #onlyhash="edonr256"
-#onlyhash="groestl256"
 #onlyhash="fugue256"
 #onlyhash="essence224"
 #onlyhash="hamsi"
-onlyhash="blake32"
 #onlyhash="keccakr1024c576"
+#onlyhash="keccak"
 #onlyhash="simd256"
-
+#onlyhash="groestl256"
+#onlyhash="blake32"
+#onlyhash="keccakc512"
+#onlyhash="skein256"
+#onlyhash="jh256"
 
 # ignore implementations matching this patters
 implIgnorePattern="^(asm64)|(sse)|(openssl)|(mmx)|(emmintrin)|(cryptopp)|(pentium4)|(athlon64)"
