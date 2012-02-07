@@ -23,7 +23,7 @@
 
 //#pragma segment = "CSTACK"
 uint8_t  inv_sc = 0;
-
+static uint8_t *address;
 /*****************************************************
  * Overwrites the entire RAM with STACK_CANARY.
  * Part of RAM is for the heap; this is why global
@@ -35,7 +35,7 @@ uint8_t  inv_sc = 0;
 //uint8_t *p_stack = __segment_end("CSTACK");
 
 //extern uint8_t __stack;		/* stack top address */
-extern unsigned short _end;  ///<Last used byte of the last segment in RAM (defined by the linker)
+extern uint8_t _end;  ///<Last used byte of the last segment in RAM (defined by the linker)
 
 
 void XBD_init() {
@@ -81,10 +81,10 @@ void XBD_init() {
     P3OUT |= BIT0;     // Set pin high
 
     //Enable interrupt for soft reset on pin 2.0
-    P2SEL &= ~BIT0;
-    P2DIR &= ~BIT0;
-    P2IES |= BIT0; //Trigger on rising edge
-    P2IE = BIT0;
+    P1SEL &= ~BIT0;
+    P1DIR &= ~BIT0;
+    P1IES |= BIT0; //Trigger on falling edge
+    P1IE = BIT0;
 
     __enable_interrupt();
 }
@@ -236,12 +236,12 @@ void XBD_paintStack(void) {
     //get address
     //uint8_t *p_stack = __segment_end("CSTACK");
 
-    unsigned short *address = &_end;
+    address = &_end;
     register void * __stackptr asm("r1");   ///<Access to the stack pointer
-    while(address <  ((unsigned short *)__stackptr)-1)
+    while(address <  ((uint8_t *)__stackptr))
     {
-        *address++ = STACK_CANARY;
-        //++p;
+        *address = STACK_CANARY;
+        ++address;
     }
 }
 
@@ -249,10 +249,10 @@ uint32_t XBD_countStack(void) {
     /* return stack measurement result/0 if not supported */
     //uint8_t *p = __segment_end("CSTACK");
     //uint8_t *p_stack = __segment_begin("CSTACK");
-    unsigned short *address = &_end;
+    address = &_end;
     register void * __stackptr asm("r1");   ///<Access to the stack pointer
     register uint16_t c = 0;
-    while(*address == STACK_CANARY && address < (unsigned short *)__stackptr)
+    while(*address == STACK_CANARY && address <= (uint8_t*)__stackptr)
     {
         ++address;
         ++c;
@@ -273,16 +273,21 @@ void XBD_stopWatchDog()
 /**
  * Soft reset using interrupt lines from XBH
  */
-interrupt (PORT2_VECTOR) soft_reset(void){
-    P2IFG &= ~BIT0; //Clear IFG for pin 2.0
-    WDTCTL = 0;     //Write invalid key to trigger soft reset
-                    //XXX Be aware soft reset does not reset register values, thus
-                    //code must initialize registers before use.
+interrupt (PORT1_VECTOR) soft_reset(void){
+    uint8_t timer;
+    P1IFG &= ~BIT0; //Clear IFG for pin 2.0
+    for(timer=0; timer < 12; timer++);
+    if(!(P1IN&BIT0)){
+        WDTCTL = 0;     //Write invalid key to trigger soft reset
+                        //XXX Be aware soft reset does not reset register values, thus
+                        //code must initialize registers before use.
+    }
+
     
     //(WDTPW+WDTTMSEL+WDTCNTCL+WDTIS1+WDTIS0) Soft reset after 0.064ms at 1MHz
 
     //software reset (this is a soft reset equivalent on msp430 at 32ms 1Mhz smclk)
     //  wdtctl = WDT_MDLY_32; //wdt_enable(WDTO_15MS); //set watch dog WDT_MDLY_32
-    while(1);
+    return;
 }
 

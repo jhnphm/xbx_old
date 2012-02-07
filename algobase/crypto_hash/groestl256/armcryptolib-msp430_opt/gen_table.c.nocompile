@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdint.h>
+uint8_t gf256mul(uint8_t a, uint8_t b, uint8_t reducer){
+	uint8_t r=0;
+	while(a&0xFE){
+		if(a&1){
+			r ^= b;
+		}
+		a >>= 1;
+		if(b&0x80){
+			b <<= 1;
+			b ^= reducer;
+		}else{
+			b <<= 1;
+		}
+	}
+	if(a&1){
+		r ^= b;
+	}
+	return r;
+}
+int main(void){
+    int i=0,j=0;
+    printf("const uint8_t GF256_MUL_LUT[6][256]={\n");
+    for(i=2; i < 8; i++){
+        printf("\t{");
+        for(j=0; j < 256; j++){
+            printf("0x%02x ",gf256mul(i,j,0x1b));
+            if(j!=255){
+                printf(",");
+            }
+        }
+        if(i!=7){
+            printf("},\n");
+        }else{
+            printf("}\n");
+        }
+    }
+    puts("}");
+}
+

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #maxSize=$1
-maxSize=52735 # 0xFFFF-0x3200 - there are 256 addtional bytes between 0x3200 and
+maxSize=44544 # 0xe000-0x3200 - there are 256 addtional bytes between 0x3200 and
               # 0x3100 but these aren't page aligned
 if [ -z "$maxSize" ]
 then

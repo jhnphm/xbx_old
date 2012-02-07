@@ -3,9 +3,9 @@
 ###############################################################################
 
 ## General Flags
-PROJECT = XBD_BL_MSP430FG4618_1MHz
+PROJECT = XBD_BL_MSP430FG4618_4MHz
 MCU = msp430fg4618
-TARGET = XBD_BL_MSP430FG4618_1MHz.elf
+TARGET = bl.elf
 CC = msp430-gcc
 
 ## Options common to compile, link and assembly rules
@@ -49,7 +49,7 @@ LINKONLYOBJECTS =
 
 
 ## Build
-all: $(TARGET) XBD_BL_MSP430FG4618_1MHz.hex XBD_BL_MSP430FG4618_1MHz.eep XBD_BL_MSP430FG4618_1MHz.lss size
+all: $(TARGET) bl.hex bl.eep bl.lss size
 
 
 ## Compile
@@ -100,7 +100,7 @@ size: ${TARGET}
 ## Clean target
 .PHONY: clean
 clean:
-	-rm -rf $(OBJECTS) XBD_BL_MSP430FG4618_1MHz.elf dep/* XBD_BL_MSP430FG4618_1MHz.hex XBD_BL_MSP430FG4618_1MHz.eep XBD_BL_MSP430FG4618_1MHz.lss XBD_BL_MSP430FG4618_1MHz.map
+	-rm -rf $(OBJECTS) bl.elf dep/* bl.hex bl.eep bl.lss bl.map
 
 
 ## Other dependencies
